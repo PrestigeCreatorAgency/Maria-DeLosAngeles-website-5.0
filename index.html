@@ -324,31 +324,6 @@ body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif
   transition:color 0.2s;
 }
 .age-btn-cancel:hover{color:rgba(255,255,255,0.7);}
-
-/* Coming Soon Toast */
-.coming-soon-toast{
-  position:fixed;
-  bottom:max(32px,env(safe-area-inset-bottom,32px));
-  left:50%;
-  transform:translateX(-50%) translateY(20px);
-  background:#1a1a1a;
-  border:1px solid rgba(255,255,255,0.12);
-  border-radius:40px;
-  padding:12px 24px;
-  font-size:13px;
-  color:var(--white);
-  font-weight:500;
-  letter-spacing:0.5px;
-  z-index:99999;
-  opacity:0;
-  transition:opacity 0.3s ease, transform 0.3s ease;
-  pointer-events:none;
-  white-space:nowrap;
-}
-.coming-soon-toast.show{
-  opacity:1;
-  transform:translateX(-50%) translateY(0);
-}
 </style>
 </head>
 <body>
@@ -362,7 +337,7 @@ var CREATOR = {
   accent:         "#ffc2d1",
   vip_of_url:     "https://onlyfans.com/laurengillvip",
   free_of_url:    "https://onlyfans.com/laurengilfans",
-  telegram_url:   "https://t.me/laurengill",
+  telegram_url:   "",
   twitter_url:    "https://x.com/laurengill_of",
   instagram_url:  "https://www.instagram.com/mariadlosangelescs/",
   tiktok_url:     "https://www.tiktok.com/@mariadlosangelescs",
@@ -427,8 +402,8 @@ var CREATOR = {
       <div class="card tall" id="J_card_tg">
         <img src="card3.jpeg" alt="" onerror="this.style.display='none'">
         <div class="card-badge blue">TELEGRAM</div>
-        <div class="card-overlay"><div class="card-lock">&#128172;</div><div class="card-lbl" style="font-size:13px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,0.8);">Coming Soon</div></div>
-      </a>
+        <div class="card-overlay"><div class="card-lock">&#128172;</div><div class="card-lbl">Coming Soon</div></div>
+      </div>
     </div>
   </div>
 
@@ -455,17 +430,16 @@ window.onload = function() {
   var C = CREATOR;
   document.documentElement.style.setProperty('--accent', C.accent);
   document.title = C.name;
-  // Name hardcoded in HTML
+  // Name set in HTML directly
   document.getElementById('J_followers').textContent = C.followers + ' Followers';
   document.getElementById('J_cta').href              = C.vip_of_url;
   document.getElementById('J_card_vip').href         = C.vip_of_url;
   document.getElementById('J_card_free').href        = C.free_of_url;
-  if(document.getElementById('J_card_tg')) document.getElementById('J_card_tg').href = C.telegram_url;
+  if(document.getElementById('J_card_tg') && C.telegram_url) document.getElementById('J_card_tg').href = C.telegram_url;
   document.getElementById('J_ig').href               = C.instagram_url;
   document.getElementById('J_tw').href               = C.twitter_url;
   document.getElementById('J_tt').href               = C.tiktok_url;
-  // Telegram icon removed
-
+  // Telegram removed
   document.getElementById('J_footer').textContent    = C.footer;
 
   if (C.analytics_url && C.analytics_id) {
@@ -531,6 +505,5 @@ window.onload = function() {
     <button class="age-btn-cancel" id="ageCancelBtn">Cancel</button>
   </div>
 </div>
-
 </body>
 </html>
