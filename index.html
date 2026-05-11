@@ -460,11 +460,11 @@ window.onload = function() {
   document.getElementById('J_cta').href              = C.vip_of_url;
   document.getElementById('J_card_vip').href         = C.vip_of_url;
   document.getElementById('J_card_free').href        = C.free_of_url;
-  document.getElementById('J_card_tg').href          = C.telegram_url;
+  if(document.getElementById('J_card_tg')) document.getElementById('J_card_tg').href = C.telegram_url;
   document.getElementById('J_ig').href               = C.instagram_url;
   document.getElementById('J_tw').href               = C.twitter_url;
   document.getElementById('J_tt').href               = C.tiktok_url;
-  document.getElementById('J_tg').href = '#';
+  // Telegram icon removed
 
   document.getElementById('J_footer').textContent    = C.footer;
 
