@@ -543,6 +543,22 @@ window.onload = function() {
   document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
 };
 </script>
+<script>
+// Splash gate
+function enterSite() {
+  var splash = document.getElementById('splash');
+  splash.style.opacity = '0';
+  splash.style.transition = 'opacity 0.4s ease';
+  setTimeout(function() { splash.style.display = 'none'; }, 400);
+  try { sessionStorage.setItem('age_verified', '1'); } catch(e) {}
+}
+function leaveSite() { window.location.href = 'https://www.google.com'; }
+try {
+  if (sessionStorage.getItem('age_verified') === '1') {
+    document.getElementById('splash').style.display = 'none';
+  }
+} catch(e) {}
+</script>
 
 <!-- Age Verification Modal -->
 <div class="age-modal-bg" id="ageModal">
